@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Log-in{% endblock %}
+
+{% block content %}
+    <h1>Log-in</h1>
+    {% if form.errors %}
+        <p>Your Username and password didn't match. Please Try Again</p>
+    {% else %}
+        <p>Please, use the following for to login</p>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p><input type="submit" value="Submit"></p>
+        </form>
+    {% endif %}
+{% endblock %}
